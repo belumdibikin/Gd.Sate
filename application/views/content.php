@@ -1,6 +1,6 @@
 
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light">Virtual machines <span class="mif-drive-eta place-right"></span></h1>
+                    <h1 class="text-light">Kukuruyuk<span class="mif-drive-eta place-right"></span></h1>
                     <hr class="thin bg-grayLighter">
                     <button class="button primary" onclick="pushMessage('info')"><span class="mif-plus"></span> Create...</button>
                     <button class="button success" onclick="pushMessage('success')"><span class="mif-play"></span> Start</button>
