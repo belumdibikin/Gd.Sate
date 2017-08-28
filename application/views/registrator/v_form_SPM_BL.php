@@ -185,7 +185,7 @@
 					<div class="cell colspan2">
 						<div class="input-control select">
 
-							<select>
+							<select name ="verifikatur">
 								<option></option>
 								<option value="ver1">Noviyanti, SE., MM.</option>
 								<option value="ver2">Setiady, S.ST.</option>
