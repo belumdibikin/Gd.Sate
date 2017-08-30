@@ -1,6 +1,6 @@
 <div class="row cells12">
 
-	<div class="cell colspan6">
+	<div class="cell colspan4">
 		<div class="panel">
 			<div class="heading">
 				<span class="title">Dokumen Utama</span>
@@ -114,6 +114,11 @@
 						</div>
 					</div>
 				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				<div class="row cells6">
 					<div class="cell colspan3">
 						Verifikatur
