@@ -5,6 +5,7 @@
 			<div class="heading">
 				<span class="title">Dokumen Utama</span>
 			</div>
+		
 			<div class="content">
 				<div class="row cells6">
 					<div class="cell colspan3">
@@ -90,74 +91,10 @@
 
 							<select>
 								<option></option>
-								<optionvalue="100.01">100.01</option>
-								<optionvalue="100.02">100.02</option>
-								<optionvalue="100.03">100.03</option>
-								<optionvalue="100.04">100.04</option>
-								<optionvalue="100.05">100.05</option>
-								<optionvalue="100.06">100.06</option>
-								<optionvalue="100.07">100.07</option>
-								<optionvalue="100.08">100.08</option>
-								<optionvalue="100.09">100.09</option>
-								<optionvalue="100.10">100.10</option>
-								<optionvalue="100.11">100.11</option>
-								<optionvalue="100.12">100.12</option>
-								<optionvalue="100.13">100.13</option>
-								<optionvalue="100.14">100.14</option>
-								<optionvalue="100.15">100.15</option>
-								<optionvalue="100.16">100.16</option>
-								<optionvalue="100.17">100.17</option>
-								<optionvalue="100.18">100.18</option>
-								<optionvalue="100.19">100.19</option>
-								<optionvalue="100.20">100.20</option>
-								<optionvalue="100.21">100.21</option>
-								<optionvalue="100.22">100.22</option>
-								<optionvalue="100.23">100.23</option>
-								<optionvalue="100.24">100.24</option>
-								<optionvalue="100.25">100.25</option>
-								<optionvalue="100.26">100.26</option>
-								<optionvalue="100.27">100.27</option>
-								<optionvalue="100.28">100.28</option>
-								<optionvalue="100.29">100.29</option>
-								<optionvalue="101.01">101.01</option>
-								<optionvalue="101.02">101.02</option>
-								<optionvalue="101.03">101.03</option>
-								<optionvalue="101.04">101.04</option>
-								<optionvalue="102.01">102.01</option>
-								<optionvalue="102.02">102.02</option>
-								<optionvalue="102.03">102.03</option>
-								<optionvalue="102.04">102.04</option>
-								<optionvalue="102.05">102.05</option>
-								<optionvalue="103.01">103.01</option>
-								<optionvalue="109.01">109.01</option>
-								<optionvalue="109.02">109.02</option>
-								<optionvalue="109.03">109.03</option>
-								<optionvalue="109.04">109.04</option>
-								<optionvalue="109.05">109.05</option>
-								<optionvalue="109.05">109.05</option>
-								<optionvalue="109.06">109.06</option>
-								<optionvalue="109.07">109.07</option>
-								<optionvalue="110.01">110.01</option>
-								<optionvalue="110.02">110.02</option>
-								<optionvalue="110.03">110.03</option>
-								<optionvalue="110.04">110.04</option>
-								<optionvalue="110.05">110.05</option>
-								<optionvalue="110.06">110.06</option>
-								<optionvalue="110.07">110.07</option>
-								<optionvalue="110.08">110.08</option>
-								<optionvalue="111.01">111.01</option>
-								<optionvalue="110.02">110.02</option>
-								<optionvalue="110.03">110.03</option>
-								<optionvalue="110.04">110.04</option>
-								<optionvalue="110.05">110.05</option>
-								<optionvalue="110.06">110.06</option>
-								<optionvalue="110.07">110.07</option>
-								<optionvalue="110.08">110.08</option>
-								<optionvalue="110.09">110.09</option>
-								<optionvalue="110.10">110.10</option>
-								<optionvalue="110.11">110.11</option>
-								<optionvalue="110.12">110.12</option>
-								<optionvalue="110.13">110.13</option>
+								<?php foreach ($kode_kegiatan as $kode) {
+                                                    echo "<option value=".$kode->id_kegiatan.">".$kode->kode_kegiatan."</option>";
+                                                }?>
+								
 							</select>
 						</div>
 					</div>
@@ -184,13 +121,12 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control select">
-
 							<select name ="verifikatur">
 								<option></option>
-								<option value="ver1">Noviyanti, SE., MM.</option>
-								<option value="ver2">Setiady, S.ST.</option>
-								<option value="ver3">Triyani, SE.</option>
-								<option value="ver4">Hendra Hermawan, SE.</option>
+							<?php foreach ($nama_verifikatur as $nama) {
+                                                    echo "<option value=".$nama->id_verifikatur.">".$nama->nama_verifikatur."</option>";
+                                                }?>
+								
 							</select>
 						</div>
 					</div>
@@ -245,7 +181,6 @@
 
 <script type="text/javascript">
 
-tampil_form_lampiran
 $(".LS").hide();
 
 
