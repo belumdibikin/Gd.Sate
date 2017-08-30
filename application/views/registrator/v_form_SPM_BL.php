@@ -1,6 +1,6 @@
 <div class="row cells12">
 
-	<div class="cell colspan4">
+	<div class="cell colspan6">
 		<div class="panel">
 			<div class="heading">
 				<span class="title">Dokumen Utama</span>
@@ -89,10 +89,10 @@
 					<div class="cell colspan2">
 						<div class="input-control select">
 
-							<select>
+							<select name="kde_kegiatan" id="kde_kegiatan">
 								<option></option>
 								<?php foreach ($kode_kegiatan as $kode) {
-                                                    echo "<option value=".$kode->id_kegiatan.">".$kode->kode_kegiatan."</option>";
+                                                    echo "<option value=".$kode->kode_kegiatan.">".$kode->kode_kegiatan."</option>";
                                                 }?>
 								
 							</select>
@@ -108,7 +108,9 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text">
-							<input type="text" name="namakeg">
+							<div id="nama_kegiatan1"></div>
+
+							<!-- <input type="text" name="namakeg"> -->
 						</div>
 					</div>
 				</div>
@@ -184,7 +186,21 @@
 $(".LS").hide();
 
 
+$('#kde_kegiatan').change(function(event) {
+	/* Act on the event */
 
+
+	$.ajax({
+		url: "<?php echo base_url('registrator/ajax_nama_kegiatan'); ?>",
+		type: 'POST',
+		dataType: 'html',
+		data: $('#myForm').serialize(),
+		success: function(data){
+			console.log(data);
+			$('#nama_kegiatan1').html(data);
+		}
+	});
+});
 
 $('#select_jenis_aju').change(function(event) {
 	/* Act on the event */

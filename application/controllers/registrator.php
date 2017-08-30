@@ -145,7 +145,7 @@ class Registrator extends CI_Controller {
 		$post_data=$this->input->post();
 		$jenis_verifikasi = $post_data['select_jenis_ver'];
 		$data['nama_verifikatur'] = $this->m_berkas->select_verifikatur();
-		$data['kode_kegiatan'] = $this->m_berkas->select_nama_kegiatan();
+		$data['kode_kegiatan'] = $this->m_berkas->select_kegiatan();
 
 		if ($jenis_verifikasi == "BL") {
 			# code...
@@ -163,5 +163,18 @@ class Registrator extends CI_Controller {
 
 		
 	}
-	
+
+	public function ajax_nama_kegiatan()
+	{
+
+		$post_data=$this->input->post();
+		$kode_kegiatan = $post_data['kde_kegiatan'];
+		//var_dump($kode_kegiatan);
+		 $data['nama_kegiatan'] = $this->m_berkas->select_nama_kegiatan($kode_kegiatan);
+
+		$this->load->view('registrator/v_nama_kegiatan',$data);
+
+
+	}
+
 }
