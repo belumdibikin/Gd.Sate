@@ -320,7 +320,7 @@
 												</div>
 											</div>					        			
 												<div class="input-control textarea " >
-													<textarea style="margin: 0px; width: 519px; height: 120px; "disabled></textarea>
+													<textarea disabled></textarea>
 												</div>
 										</div>
 									</div>
@@ -442,7 +442,7 @@
 												</div>
 											</div>					        			
 												<div class="input-control textarea " >
-													<textarea style="margin-left: 0px; margin-right: 0px; width: 383px;"></textarea>
+													<textarea ></textarea>
 												</div>
 										</div>
 									</div>
