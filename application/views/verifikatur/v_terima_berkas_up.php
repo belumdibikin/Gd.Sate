@@ -472,6 +472,29 @@
 												</div>
 											</div>
 										</div>
+
+									</div>
+									<br>
+									<br>
+
+									<div class="panel">
+										<div class="heading">
+											<span class="title">Catatan Verifikatur</span>
+										</div>
+										<div class="content">
+											<br>
+											<div class="row cells10">
+												<div class="cell ">
+													Catatan Verifikatur
+												</div>
+												<div class="cell">
+													:
+												</div>
+											</div>					        			
+												<div class="input-control textarea " >
+													<textarea style="margin-left: 0px; margin-right: 0px; width: 303px;"></textarea>
+												</div>
+										</div>
 									</div>
 								</div>
 
