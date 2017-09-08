@@ -4,8 +4,7 @@
 <?php $this->load->view('head');?>
 
 <body class="bg-steel">
-
-	<?php $this->load->view('appbar_ver');?>
+ <?php $this->load->view('pimpinan/appbar_pimp');?>
 	<div class="page-content">
 		<div class="flex-grid no-responsive-future">
 			<div class="row" style="height: 100%">

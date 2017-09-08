@@ -21,7 +21,7 @@
                 </ul> -->
             </li>
             <li><a href="<?php echo base_url('cari_berkas');?>">Cari Berkas</a></li>
-            <li>
+            <!-- <li>
                 <a href="" class="dropdown-toggle">Help</a>
                 <ul class="d-menu" data-role="dropdown">
                     <li><a href="">ChatOn</a></li>
@@ -29,11 +29,11 @@
                     <li class="divider"></li>
                     <li><a href="">About</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
 
         <div class="app-bar-element place-right">
-            <span class="dropdown-toggle"><span class="mif-cog"></span> User Name</span>
+            <span class="dropdown-toggle"><span class="mif-cog"></span> pimpinan</span>
             <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
                 <h2 class="text-light">Quick settings</h2>
                 <ul class="unstyled-list fg-dark">

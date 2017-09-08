@@ -5,7 +5,7 @@
 
 <body class="bg-steel">
        
-    <?php $this->load->view('appbar_ver');?>
+    <?php $this->load->view('verifikatur/appbar_verifikatur');?>
 <div class="page-content">
         <div class="flex-grid no-responsive-future" style="height: 100%;">
             <div class="row" style="height: 100%">
