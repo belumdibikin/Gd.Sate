@@ -51,6 +51,25 @@
 						</div>
 					</div>
 				</div>
+				<div class="row cells6 LSop">
+					<div class="cell colspan3">
+						LS
+					</div>
+					<div class="cell">
+						:
+					</div>
+					<div class="cell colspan2">
+						<div class="input-control select">
+							<select name="bidang">
+								<option></option>
+								<option value="tagihan100">Tagihan 100%</option>
+								<option value="uang_muka">Uang Muka</option>
+								<option value="termin">Termin </option>
+								<option value="jasa_profesi">Jasa Profesi</option>
+							</select>
+						</div>
+					</div>
+				</div>
 				<div class="row cells6">
 					<div class="cell colspan3">
 						Tanggal Terima SPP
@@ -188,6 +207,7 @@
 
 <script type="text/javascript">
 
+$(".LSop").hide();
 $(".LS").hide();
 
 
@@ -212,8 +232,10 @@ $('#select_jenis_aju').change(function(event) {
 
 	if($('#select_jenis_aju').val() == "LS"){
 		$(".LS").show();
+		$(".LSop").show();
 	}else{
 		$(".LS").hide();
+		$(".LSop").hide();
 	}
 
 	$.ajax({
