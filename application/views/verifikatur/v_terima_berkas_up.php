@@ -23,6 +23,7 @@
 											<span class="title">Panel Title</span>
 										</div>
 										<div class="content">
+											<div class="clearfix">&nbsp;</div>
 											<div class="row cells6">
 												<div class="cell colspan3">
 													Bidang / Balai  
@@ -226,7 +227,6 @@
 											</div>
 											<div class="row cells6 LS">
 												<div class="cell colspan3">
-
 													Nama Penyedia/Perusahaan  
 												</div>
 												<div class="cell">
@@ -249,6 +249,7 @@
 											<span class="title">Dokumen Umum</span>
 										</div>
 										<div class="content">
+											<div class="clearfix">&nbsp;</div>
 											<div class="row cells6">
 												<div class="cell colspan3">
 													SPP 1 - Surat Pengantar (BP)  
@@ -342,7 +343,7 @@
 											<span class="title">Dokumen TU</span>
 										</div>
 										<div class="content">
-											<br>
+											<div class="clearfix">&nbsp;</div>
 											<div class="row cells10">
 												<div class="cell colspan8">
 													Surat Persetujuan/Rekomendasi TU
@@ -381,6 +382,7 @@
 											<span class="title">Lampiran</span>
 										</div>
 										<div class="content">
+											<div class="clearfix">&nbsp;</div>
 											<div class="row cells6">
 												<div class="cell colspan3">
 													Anggaran Kas
@@ -482,7 +484,7 @@
 											<span class="title">Catatan Verifikatur</span>
 										</div>
 										<div class="content">
-											<br>
+											<div class="clearfix">&nbsp;</div>
 											<div class="row cells10">
 												<div class="cell ">
 													Catatan Verifikatur
@@ -491,9 +493,9 @@
 													:
 												</div>
 											</div>					        			
-												<div class="input-control textarea " >
-													<textarea style="margin-left: 0px; margin-right: 0px; width: 303px;"></textarea>
-												</div>
+											<div class="input-control textarea " >
+												<textarea style="margin-left: 0px; margin-right: 0px; width: 303px;"></textarea>
+											</div>
 										</div>
 									</div>
 								</div>
