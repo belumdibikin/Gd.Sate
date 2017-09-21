@@ -2,7 +2,7 @@
 
 class M_berkas extends CI_Model {
 
-    private $arrNonLS = array("GUP","TUP","UP");
+    var $this->arrNonLS = array("GUP","TUP","UP");
 
     function __construct()
     {
@@ -78,7 +78,7 @@ class M_berkas extends CI_Model {
             ";
             $query = $this->db->simple_query($sql);
             if($query){
-                if(in_array($kode_kegiatan, $arrNonLS)){
+                if(in_array($kode_kegiatan, $this->arrNonLS)){
                     $sql = "
                         INSERT INTO kendali_non_ls(`id_kendali`) 
                         VALUES
@@ -127,7 +127,7 @@ class M_berkas extends CI_Model {
         }
 
         //Non LS
-        if(in_array($kode_kegiatan, $arrNonLS)){
+        if(in_array($kode_kegiatan, $this->arrNonLS)){
             $sql = "
                 UPDATE kendali_non_ls
                 SET 
