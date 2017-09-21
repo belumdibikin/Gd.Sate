@@ -16,7 +16,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control select">
-							<select name="bidang">
+							<select name="bidang" id="bidang">
 								<option value="SKT">Sekertariat</option>
 								<option value="BA">Bidang Anggaran</option>
 								<option value="BP">Bidang Perbendaharaan</option>
@@ -57,7 +57,8 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control select">
-							<select name="blls">
+							<select name="blls" id="blls">
+								<option></option>
 								<option value="BD">Bendahara</option>
 								<option value="UM">Uang Muka</option>
 								<option value="TM">Termin </option>
@@ -76,7 +77,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text">
-							<input type="text" name="nomorspp">
+							<input type="text" name="nomorspp" id="nomorspp">
 						</div>
 					</div>
 				</div>
@@ -89,7 +90,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text" data-role="datepicker" data-format="isoDate">
-							<input type="text" name="tanggalterima">
+							<input type="text" name="tanggalterima" id="tanggalterima">
 							<button class="button"><span class="mif-calendar"></span></button>
 						</div>
 					</div>
@@ -103,7 +104,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text" data-role="datepicker" data-format="isoDate">
-							<input type="text" name="tanggalkendali">
+							<input type="text" name="tanggalkendali" id="tanggalkendali">
 							<button class="button"><span class="mif-calendar"></span></button>
 						</div>
 					</div>
@@ -156,7 +157,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control select">
-							<select name ="verifikatur">
+							<select name ="verifikatur" id="verifikatur">
 							<?php foreach ($nama_verifikatur as $nama) {
                                                     echo "<option value=".$nama->id_pegawai.">".$nama->nama_pegawai."</option>";
                                                 }?>
@@ -174,7 +175,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text">
-							<input type="text" name="nilaispp">
+							<input type="text" name="nilaispp" id="nilaispp">
 						</div>
 					</div>
 				</div>
@@ -188,7 +189,7 @@
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control text">
-							<input type="text" name="namapenyedia">
+							<input type="text" name="namapenyedia" id="namapenyedia">
 						</div>
 					</div>
 				</div>

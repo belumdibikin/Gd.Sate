@@ -33,7 +33,6 @@
 												<div class="cell colspan2">
 													<div class="input-control select">
 														<select id="select_jenis_ver" name="select_jenis_ver" >
-															<option></option>
 															<option value="BL">VERIFIKASI SPM BELANJA LANGSUNG</option>
 															<option value="TBL">VERIFIKASI SPM  TIDAK LANGSUNG BELANJA LANGSUNG</option>
 															<option value="SPJ">SPJ</option>
@@ -48,7 +47,8 @@
 							<div id="form_dokumen_utama"></div>
 							<hr class="thin bg-grayLighter">
 							<button class="button alert" onclick="myFunction()"><span class="mif-loop2"></span> Clear Data</button>
-							<button class="button success" onclick="clickSubmit()"><span class="mif-play"></span> Send</button>
+							<button class="button primary" type="button" id="btn_kirim">Kirim</button>
+							<!-- <button class="button success" id="btn_kirim" onclick="clickSubmit()"><span class="mif-play"></span> Send</button> -->
 						</div>
 					</form>
 
@@ -83,7 +83,21 @@
 
 	});
 
+	$('#btn_kirim').click(function(event) {
+        /* Act on the event */
 
+        $.ajax({
+            url: "<?php echo base_url('registrator/input_dokumen_reg'); ?>",
+            type: 'POST',
+            dataType: 'html',
+            data: $('#myForm').serialize(),
+            success: function(data){
+                console.log(data);
+                $('#data_dok').html(data);
+            }
+        });
+        
+    });
 
 
 

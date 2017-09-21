@@ -4,7 +4,7 @@
 <h6>
 	
 	<div class="input-control textarea">
-		<textarea >
+		<textarea id="namkeg">
 			<?php echo "$nama->nama_kegiatan";?>
 
 		</textarea>
