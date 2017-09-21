@@ -92,8 +92,12 @@
             dataType: 'html',
             data: $('#myForm').serialize(),
             success: function(data){
-                console.log(data);
-                $('#data_dok').html(data);
+            	if(data != "error"){
+            		window.location = "<?php echo base_url('registrator/index'); ?>";
+
+            	}
+                //console.log(data);
+               // $('#data_dok').html(data);
             }
         });
         

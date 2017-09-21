@@ -180,11 +180,7 @@ class Registrator extends CI_Controller {
 	public function input_dokumen_reg()
 	{
 
-		// $post_data=$this->input->post();
-		// echo "<pre>";
-		// print_r($post_data);
-		// echo "</pre>";
-
+		
 		$post_data=$this->input->post();
 
 
@@ -199,13 +195,20 @@ class Registrator extends CI_Controller {
 			//$status_kendali=$post_data['select_jenis_aju'];
 			//$terbit_tgl=$post_data['select_jenis_aju'];
 			//$terbit_nomor=$post_data['select_jenis_aju'];
-		$kode_jenis=$post_data['select_jenis_aju'];
 		$id_verifikatur=$post_data['verifikatur'];
+		
+		$kode_jenis=$post_data['select_jenis_aju'];
+		if ($kode_jenis=="LS"){
+			$kode_jenis = $post_data['blls'];
+		}
 
+
+		$hasil = $this->m_berkas->newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $kode_jenis, $id_verifikatur);
 		
-		$this->m_berkas->newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $kode_jenis, $id_verifikatur);
-		
+		print $hasil;
 
 	}
+
+
 
 }
