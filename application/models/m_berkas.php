@@ -78,7 +78,7 @@ class M_berkas extends CI_Model {
             ";
             $query = $this->db->simple_query($sql);
             if($query){
-                if(in_array($kode_kegiatan, $this->arrNonLS)){
+                if(in_array($kode_jenis, $this->arrNonLS)){
                     $sql = "
                         INSERT INTO kendali_non_ls(`id_kendali`) 
                         VALUES
@@ -127,7 +127,7 @@ class M_berkas extends CI_Model {
         }
 
         //Non LS
-        if(in_array($kode_kegiatan, $this->arrNonLS)){
+        if(in_array($kode_jenis, $this->arrNonLS)){
             $sql = "
                 UPDATE kendali_non_ls
                 SET 
@@ -149,6 +149,32 @@ class M_berkas extends CI_Model {
                     `id_kendali = '$id_kendali'
             ";
         }else{
+            // id_kendali
+            // spp_bp
+            // spp_bpp
+            // spp_ringkasan
+            // spp_rincian
+            // nt_pengajuan
+            // ls_spk
+            // ls_bapp
+            // ls_bukti_transfer
+            // ls_referensi_bank
+            // ls_ebilling_pajak
+            // ls_faktur_pajak
+            // um_rincian
+            // um_jaminan
+            // jm_pelaksana_pekerjaan
+            // jm_sosial_ketenagakerjaan
+            // tm_kemajuan_pekerjaan
+            // js_ba_serah_terima
+            // js_sr_permohonan_bayar
+            // bd_rekap_lalu
+            // bd_hadir_lalu
+            // bd_sr_tanggung_jawab
+            // bd_nominatif
+            // bd_nominatif_lalu
+            // bd_fc_spk
+            // bd_fc_sp
             $sql = "
                 UPDATE kendali_ls
                 SET 
@@ -181,6 +207,12 @@ class M_berkas extends CI_Model {
                 WHERE
                     `id_kendali = '$id_kendali'
             ";
+            $query = $this->db->simple_query($sql);
+            if($query){
+                return "success";
+            }else{
+                return "error";
+            }
         }else{
             return "error";
         }
