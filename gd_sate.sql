@@ -1,157 +1,331 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 30, 2017 at 03:50 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.2
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: 127.0.0.1    Database: gd_sate
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.1.25-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `gd_sate`
+-- Table structure for table `bidang`
 --
 
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `bidang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bidang` (
+  `kode_bidang` char(10) NOT NULL,
+  `nama_bidang` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`kode_bidang`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bidang`
+--
+
+LOCK TABLES `bidang` WRITE;
+/*!40000 ALTER TABLE `bidang` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bidang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jenis`
+--
+
+DROP TABLE IF EXISTS `jenis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jenis` (
+  `kode_jenis` char(5) NOT NULL,
+  `detail_jenis` varchar(255) DEFAULT NULL,
+  `head_jenis` char(5) NOT NULL DEFAULT '-',
+  `tabel_jenis` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`kode_jenis`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jenis`
+--
+
+LOCK TABLES `jenis` WRITE;
+/*!40000 ALTER TABLE `jenis` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jenis` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `kegiatan`
 --
 
+DROP TABLE IF EXISTS `kegiatan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kegiatan` (
-  `id_kegiatan` int(11) NOT NULL,
-  `kode_kegiatan` varchar(15) NOT NULL,
-  `nama_kegiatan` text NOT NULL
+  `kode_kegiatan` char(50) NOT NULL,
+  `nama_kegiatan` varchar(255) DEFAULT NULL,
+  `kode_bidang` char(10) NOT NULL,
+  `pj_pembuat_komitmen` int(11) DEFAULT NULL,
+  `pj_pelaksana_teknis_kegiatan` int(11) DEFAULT NULL,
+  `bd_pengeluaran_pembantu` int(11) DEFAULT NULL,
+  `bd_pengeluaran_bpkad` int(11) DEFAULT NULL,
+  `pj_pengelola_keuangan_skpd` int(11) DEFAULT NULL,
+  `pg_anggaran` int(11) DEFAULT NULL,
+  PRIMARY KEY (`kode_kegiatan`),
+  KEY `kode_bidang` (`kode_bidang`),
+  KEY `pj_pembuat_komitmen` (`pj_pembuat_komitmen`),
+  KEY `pj_pelaksana_teknis_kegiatan` (`pj_pelaksana_teknis_kegiatan`),
+  KEY `bd_pengeluaran_pembantu` (`bd_pengeluaran_pembantu`),
+  KEY `bd_pengeluaran_bpkad` (`bd_pengeluaran_bpkad`),
+  KEY `pj_pengelola_keuangan_skpd` (`pj_pengelola_keuangan_skpd`),
+  KEY `pg_anggaran` (`pg_anggaran`),
+  CONSTRAINT `kegiatan_ibfk_1` FOREIGN KEY (`kode_bidang`) REFERENCES `bidang` (`kode_bidang`),
+  CONSTRAINT `kegiatan_ibfk_2` FOREIGN KEY (`pj_pembuat_komitmen`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kegiatan_ibfk_3` FOREIGN KEY (`pj_pelaksana_teknis_kegiatan`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kegiatan_ibfk_4` FOREIGN KEY (`bd_pengeluaran_pembantu`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kegiatan_ibfk_5` FOREIGN KEY (`bd_pengeluaran_bpkad`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kegiatan_ibfk_6` FOREIGN KEY (`pj_pengelola_keuangan_skpd`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kegiatan_ibfk_7` FOREIGN KEY (`pg_anggaran`) REFERENCES `pegawai` (`id_pegawai`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `kode_kegiatan`, `nama_kegiatan`) VALUES
-(1, '100.01', '\r\nKegiatan Penyusunan APBD Provinsi Jawa Barat\r\n'),
-(2, '100.02', 'Kegiatan Penyusunan Perubahan APBD Provinsi Jawa Barat\r\n'),
-(3, '100.03', 'Kegiatan Sosialisasi Peraturan Mengenai Pengelolaan Keuangan Daerah\r\n'),
-(4, '100.04', 'Kegiatan Penyusunan Peraturan Mengenai Pengelolaan Keuangan Daerah\r\n'),
-(5, '100.05', 'Kegiatan Sinkronisasi dan Konfirmasi Pendapatan Daerah\r\n'),
-(6, '100.06', 'Kegiatan Penganggaran Gaji dan Tunjangan\r\n'),
-(7, '100.07', 'Kegiatan Pembinaan dan Bimbingan Teknis Penatausahaan Keuangan Daerah\r\n '),
-(8, '100.08', 'Kegiatan Penatausahaan Gaji dan Tunjangan\r\n'),
-(9, '100.09', 'Kegiatan Penyelesaian Penyaluran Dana SP2D dan Retur\r\n'),
-(10, '100.10', 'Bimbingan Teknis Akuntansi Dan Pelaporan Keuangan Daerah\r\n'),
-(11, '100.12', 'Kegiatan Rekonsiliasi Pendapatan Sektor Pajak Daerah\r\n'),
-(12, '100.13', 'Kegiatan Penyusunan Laporan Pertanggungjawaban Pelaksanaan APBD Pemerintah Daerah Provinsi Jawa Barat Tahun Anggaran 2016\r\n'),
-(13, '100.14', 'Kegiatan Pembinaan Penyimpanan dan Distribusi Barang Daerah\r\n'),
-(14, '100.15', 'Kegiatan Pengamanan Fisik Aset Tanah dan Bangunan Milik Pemerintah Provinsi Jawa Barat\r\n'),
-(15, '100.16', 'Kegiatan Pengembangan Sistem Pengelolaan Keuangan dan aset Daerah\r\n'),
-(16, '100.17', 'Kegiatan Penilaian/Appraisal untuk Penghapusan dan Pemindahtanganan Barang Milik Daerah Provinsi Jawa Barat\r\n'),
-(17, '100.18', 'Kegiatan Inventarisasi Barang Milik Daerah\r\n'),
-(18, '100.19', 'Kegiatan Identifikasi Kebutuhan Barang Milik Daerah\r\n'),
-(19, '100.20', 'Kegiatan Penyusunan Standar Harga Barang\r\n'),
-(20, '100.21', 'Kegiatan Pengamanan Administrasi Aset Tanah dan Bangunan Milik Pemerintah Provinsi Jawa Barat\r\n'),
-(21, '100.22', 'Kegiatan Verifikasi Usulan Penghapusan dan Pemindahtanganan Barang Milik Daerah Provinsi Jawa Barat\r\n'),
-(22, '100.23', 'Kegiatan Evaluasi Rancangan Perda Kabupaten/Kota tentang Pertanggungjawaban Pelaksanaan APBD dan Rancangan Peraturan Bupati/Wali Kota tentang Penjabaran Pertanggungjawaban Pelaksanaan APBD\r\n'),
-(23, '100.24', 'Kegiatan Evaluasi Rancangan Perda Kabupaten/Kota tentang Perubahan APBD dan Rancangan Peraturan Bupati/Wali Kota tentang Penjabaran Perubahan APBD\r\n'),
-(24, '100.25', 'Kegiatan Evaluasi Rancangan Perda Kabupaten/Kota tentang APBD dan Rancangan Peraturan Bupati/Wali Kota tentang Penjabaran APBD\r\n'),
-(25, '100.26', 'Kegiatan Sinergitas dan Pembinaan Pengelolaan Keuangan Daerah Kabupaten/Kota\r\n'),
-(26, '100.27', 'Kegiatan Penyelarasan Data APBD, Perubahan APBD dan Pertanggungjawaban Pelaksanaan APBD Kabupaten/Kota se Jawa Barat\r\n'),
-(27, '100.28', 'Monitoring dan Evaluasi Pemanfaatan Aset Tanah dan Bangunan Milik Pemerintah Provinsi Jawa Barat\r\n'),
-(28, '100.29', 'Kegiatan Pengelolaan Pemanfaatan Aset Tanah dan Bangunan Milik Pemerintah Provinsi Jawa Barat\r\n'),
-(29, '101.01', 'Kegiatan Penyusunan Rencana Kerja Anggaran BPKAD\r\n'),
-(30, '101.02', 'Kegiatan Pameran Laporan Keterangan Pertanggungjawaban (LKPJ)\r\n'),
-(31, '101.03', 'Kegiatan Penyusunan Laporan Keuangan Bulanan, Semesteran dan Akhir Tahun\r\n'),
-(32, '101.04', 'Kegiatan Penyusunan Dokumen Perencanaan Badan Pengelolaan Keuangan dan Aset Daerah\r\n'),
-(33, '102.01', 'Kegiatan Peningkatan dan Pengembangan Wawasan SDM Badan Pengelolaan Keuangan dan Aset Daerah\r\n'),
-(34, '102.02', 'Kegiatan Peningkatan Kapasitas Pengelola Pemindahtanganan, Pemusnahan dan Penghapusan\r\n'),
-(35, '102.03', 'Kegiatan Peningkatan Kapasitas Pengelola Inventarisasi Barang Milik Daerah\r\n'),
-(36, '102.04', 'Kegiatan Sosialisasi Perencanaan Kebutuhan Barang\r\n'),
-(37, '102.05', 'Kegiatan Sosialisasi Standar Harga Barang Tahun 2018\r\n'),
-(38, '103.01', 'Kegiatan Pengadaan Pakaian Badan Pengelolaan Keuangan dan Aset Daerah \r\n'),
-(39, '109.01', 'Kegiatan Pemeliharaan Peralatan dan Perlengkapan Kantor BPKAD\r\n'),
-(40, '109.03', 'Kegiatan Pemeliharaan Komplek Olahraga Cisangkan\r\n'),
-(41, '109.04', 'Kegiatan Pemeliharaan Sarana dan Prasarana Kantor UPTB Unit Layanan Pengadaan Barang dan Jasa\r\n'),
-(42, '109.05', 'Kegiatan Pemeliharaan Sarana dan Prasarana UPTB Pemanfaatan Aset\r\n'),
-(43, '109.06', 'Kegiatan Pengelolaan Asrama Jawa Barat di Jogjakarta\r\n'),
-(44, '109.07', 'Kegiatan Pemeliharaan Pondok Seni Pangandaran\r\n'),
-(45, '110.01', 'Kegiatan Penyusunan DED Pembangunan Gedung Badan Pengelolaan Keuangan dan Aset Daerah\r\n'),
-(46, '110.02', 'Kegiatan Pengadaan Komputer, Printer, Jaringan dan Acesoris Lainnya BPKAD\r\n'),
-(47, '110.04', 'Kegiatan Pengadaan Peralatan dan Kelengkapan Kantor BPKAD\r\n'),
-(48, '110.05', 'Kegiatan Pengadaan Maubelair BPKAD\r\n'),
-(49, '110.06', 'Kegiatan Pengadaan Kendaraan Dinas/Operasional Provinsi Jawa Barat \r\n'),
-(50, '110.07', 'Kegiatan Peningkatan Sarana dan Prasarana UPTB Pengadaan Barang dan Jasa\r\n'),
-(51, '110.08', 'Kegiatan Peningkatan Sarana dan Prasarana UPTB Pemanfaatan Aset\r\n'),
-(52, '111.01', 'Kegiatan Penyediaan Jasa Kantor Badan Pengelolaan Keuangan dan Aset Daerah\r\n'),
-(53, '111.02', 'Kegiatan Penyediaan Belanja Cetak dan Penjilidan\r\n'),
-(54, '111.03', 'Kegiatan Penyediaan Makanan dan Minuman\r\n'),
-(55, '111.04', 'Kegiatan Penyediaan Belanja Perjalanan Dinas\r\n'),
-(56, '111.05', 'Kegiatan Rapat-rapat Koordinasi dan Konsultasi Balai Pelayanan Evaluasi APBD Kabupaten/Kota\r\n'),
-(57, '111.07', 'Kegiatan Penyediaan Makanan dan Minuman Balai Pelayanan Evaluasi APBD Kabupaten/Kota\r\n'),
-(58, '111.08', 'Kegiatan Penyediaan Jasa Kantor UPTB Pengadaan Barang dan Jasa\r\n'),
-(59, '111.09', 'Kegiatan Penyediaan Makan dan Minum UPTB Pengadaan Barang & Jasa\r\n'),
-(60, '111.10', 'Kegiatan Perjalanan Dinas UPTB Pengadaan Barang & Jasa\r\n'),
-(61, '111.11', 'Kegiatan Penyediaan Jasa Kantor UPTB Pemanfaatan Aset\r\n'),
-(62, '111.12', 'Kegiatan Penyediaan Perjalanan Dinas UPTB Pemanfaatan Aset\r\n'),
-(63, '111.13', 'Kegiatan Penyediaan Makan dan Minum UPTB Pemanfaatan Aset\r\n');
-
--- --------------------------------------------------------
+LOCK TABLES `kegiatan` WRITE;
+/*!40000 ALTER TABLE `kegiatan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kegiatan` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `verifikatur`
+-- Table structure for table `kendali_ls`
 --
 
-CREATE TABLE `verifikatur` (
-  `id_verifikatur` int(11) NOT NULL,
-  `nama_verifikatur` varchar(50) NOT NULL
+DROP TABLE IF EXISTS `kendali_ls`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kendali_ls` (
+  `id_kendali` int(11) NOT NULL,
+  `spp_bp` tinyint(1) DEFAULT NULL,
+  `spp_bpp` tinyint(1) DEFAULT NULL,
+  `spp_ringkasan` tinyint(1) DEFAULT NULL,
+  `spp_rincian` tinyint(1) DEFAULT NULL,
+  `nt_pengajuan` tinyint(1) DEFAULT NULL,
+  `ls_spk` tinyint(1) DEFAULT NULL,
+  `ls_bapp` tinyint(1) DEFAULT NULL,
+  `ls_bukti_transfer` tinyint(1) DEFAULT NULL,
+  `ls_referensi_bank` tinyint(1) DEFAULT NULL,
+  `ls_ebilling_pajak` tinyint(1) DEFAULT NULL,
+  `ls_faktur_pajak` tinyint(1) DEFAULT NULL,
+  `um_rincian` tinyint(1) DEFAULT NULL,
+  `um_jaminan` tinyint(1) DEFAULT NULL,
+  `jm_pelaksana_pekerjaan` tinyint(1) DEFAULT NULL,
+  `jm_sosial_ketenagakerjaan` tinyint(1) DEFAULT NULL,
+  `tm_kemajuan_pekerjaan` tinyint(1) DEFAULT NULL,
+  `js_ba_serah_terima` tinyint(1) DEFAULT NULL,
+  `js_sr_permohonan_bayar` tinyint(1) DEFAULT NULL,
+  `bd_rekap_lalu` tinyint(1) DEFAULT NULL,
+  `bd_hadir_lalu` tinyint(1) DEFAULT NULL,
+  `bd_sr_tanggung_jawab` tinyint(1) DEFAULT NULL,
+  `bd_nominatif` tinyint(1) DEFAULT NULL,
+  `bd_nominatif_lalu` tinyint(1) DEFAULT NULL,
+  `bd_fc_spk` tinyint(1) DEFAULT NULL,
+  `bd_fc_sp` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_kendali`),
+  CONSTRAINT `kendali_ls_ibfk_1` FOREIGN KEY (`id_kendali`) REFERENCES `kendali_utama` (`id_kendali`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `verifikatur`
+-- Dumping data for table `kendali_ls`
 --
 
-INSERT INTO `verifikatur` (`id_verifikatur`, `nama_verifikatur`) VALUES
-(1, 'Noviyanti, SE., MM.'),
-(2, 'Setiady, S.ST.'),
-(3, 'Triyani, SE.'),
-(4, 'Hendra Hermawan, SE.');
+LOCK TABLES `kendali_ls` WRITE;
+/*!40000 ALTER TABLE `kendali_ls` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kendali_ls` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Indexes for dumped tables
+-- Table structure for table `kendali_non_ls`
 --
 
---
--- Indexes for table `kegiatan`
---
-ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id_kegiatan`);
+DROP TABLE IF EXISTS `kendali_non_ls`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kendali_non_ls` (
+  `id_kendali` int(11) NOT NULL,
+  `spp_bp` tinyint(1) DEFAULT NULL,
+  `spp_bpp` tinyint(1) DEFAULT NULL,
+  `spp_ringkasan` tinyint(1) DEFAULT NULL,
+  `spp_rincian` tinyint(1) DEFAULT NULL,
+  `spp_nd_pengajuan` tinyint(1) DEFAULT NULL,
+  `sr_pernyataan_pengajuan` tinyint(1) DEFAULT NULL,
+  `up_dat_dpa` tinyint(1) DEFAULT NULL,
+  `up_dat_spd_tri` tinyint(1) DEFAULT NULL,
+  `up_anggaran_kas` tinyint(1) DEFAULT NULL,
+  `up_rencana_pencairan` tinyint(1) DEFAULT NULL,
+  `gu_sr_pengesahan_spj` tinyint(1) DEFAULT NULL,
+  `gu_sr_pernyataan_belanja` tinyint(1) DEFAULT NULL,
+  `tu_sr_setuju` tinyint(1) DEFAULT NULL,
+  `tu_rencana_guna` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_kendali`),
+  CONSTRAINT `kendali_non_ls_ibfk_1` FOREIGN KEY (`id_kendali`) REFERENCES `kendali_utama` (`id_kendali`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Indexes for table `verifikatur`
---
-ALTER TABLE `verifikatur`
-  ADD PRIMARY KEY (`id_verifikatur`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Dumping data for table `kendali_non_ls`
 --
 
+LOCK TABLES `kendali_non_ls` WRITE;
+/*!40000 ALTER TABLE `kendali_non_ls` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kendali_non_ls` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
--- AUTO_INCREMENT for table `kegiatan`
+-- Table structure for table `kendali_periksa`
 --
-ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+DROP TABLE IF EXISTS `kendali_periksa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kendali_periksa` (
+  `id_kendali` int(11) NOT NULL,
+  `id_verifikatur` int(11) NOT NULL,
+  `vr_catatan` text,
+  `vr_kesimpulan` text,
+  `vr_tgl_periksa` date DEFAULT NULL,
+  `vr_tgl_kembali` date DEFAULT NULL,
+  `vr_tgl_selesai` date DEFAULT NULL,
+  `id_ppk` int(11) NOT NULL,
+  `ppk_tgl_periksa` date DEFAULT NULL,
+  `ppk_tgl_kembali` date DEFAULT NULL,
+  `ppk_tgl_setuju` date DEFAULT NULL,
+  PRIMARY KEY (`id_kendali`),
+  KEY `id_verifikatur` (`id_verifikatur`),
+  KEY `id_ppk` (`id_ppk`),
+  CONSTRAINT `kendali_periksa_ibfk_1` FOREIGN KEY (`id_kendali`) REFERENCES `kendali_utama` (`id_kendali`),
+  CONSTRAINT `kendali_periksa_ibfk_2` FOREIGN KEY (`id_verifikatur`) REFERENCES `pegawai` (`id_pegawai`),
+  CONSTRAINT `kendali_periksa_ibfk_3` FOREIGN KEY (`id_ppk`) REFERENCES `pegawai` (`id_pegawai`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- AUTO_INCREMENT for table `verifikatur`
+-- Dumping data for table `kendali_periksa`
 --
-ALTER TABLE `verifikatur`
-  MODIFY `id_verifikatur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+LOCK TABLES `kendali_periksa` WRITE;
+/*!40000 ALTER TABLE `kendali_periksa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kendali_periksa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kendali_utama`
+--
+
+DROP TABLE IF EXISTS `kendali_utama`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kendali_utama` (
+  `id_kendali` int(11) NOT NULL AUTO_INCREMENT,
+  `spp_nomor` varchar(255) DEFAULT NULL,
+  `spp_tgl_terima` date DEFAULT NULL,
+  `spp_nilai` double DEFAULT NULL,
+  `kode_bidang` char(50) NOT NULL,
+  `kode_kegiatan` char(50) NOT NULL,
+  `nama_penyedia` varchar(255) DEFAULT NULL,
+  `tgl_kendali_verifikasi` date DEFAULT NULL,
+  `status_kendali` int(11) DEFAULT NULL,
+  `terbit_tgl` date DEFAULT NULL,
+  `terbit_nomor` varchar(255) DEFAULT NULL,
+  `kode_jenis` char(5) NOT NULL,
+  PRIMARY KEY (`id_kendali`),
+  KEY `kode_jenis` (`kode_jenis`),
+  KEY `kode_bidang` (`kode_bidang`),
+  KEY `kode_kegiatan` (`kode_kegiatan`),
+  CONSTRAINT `kendali_utama_ibfk_1` FOREIGN KEY (`kode_jenis`) REFERENCES `jenis` (`kode_jenis`),
+  CONSTRAINT `kendali_utama_ibfk_2` FOREIGN KEY (`kode_bidang`) REFERENCES `bidang` (`kode_bidang`),
+  CONSTRAINT `kendali_utama_ibfk_3` FOREIGN KEY (`kode_kegiatan`) REFERENCES `kegiatan` (`kode_kegiatan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kendali_utama`
+--
+
+LOCK TABLES `kendali_utama` WRITE;
+/*!40000 ALTER TABLE `kendali_utama` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kendali_utama` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pegawai`
+--
+
+DROP TABLE IF EXISTS `pegawai`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pegawai` (
+  `id_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `nip` char(18) DEFAULT NULL,
+  `nama_pegawai` varchar(255) DEFAULT NULL,
+  `golongan` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_pegawai`),
+  UNIQUE KEY `nip` (`nip`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+LOCK TABLES `pegawai` WRITE;
+/*!40000 ALTER TABLE `pegawai` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pegawai` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pegawai` int(11) DEFAULT NULL,
+  `level` char(10) DEFAULT NULL,
+  `password` char(32) NOT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-09-21 14:55:05
