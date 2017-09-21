@@ -64,7 +64,7 @@ class M_berkas extends CI_Model {
                 '$kode_jenis'
             )
         ";
-        $query = $this->db->simple_query($query);
+        $query = $this->db->simple_query($sql);
         if($query){
             $id_kendali = $this->db->insert_id();
             $sql = "
@@ -76,7 +76,7 @@ class M_berkas extends CI_Model {
                     (SELECT pj_pengelola_keuangan_skpd FROM kegiatan WHERE kode_kegiatan = '$kode_kegiatan')
                 )
             ";
-            $query = $this->db->simple_query($query);
+            $query = $this->db->simple_query($sql);
             if($query){
                 if(in_array($kode_kegiatan, $arrNonLS)){
                     $sql = "
@@ -96,7 +96,7 @@ class M_berkas extends CI_Model {
                     ";
                 }
 
-                $query = $this->db->simple_query($query);
+                $query = $this->db->simple_query($sql);
                 if($query){
                     return $id_kendali;
                 }else{
@@ -171,7 +171,7 @@ class M_berkas extends CI_Model {
             ";
         }
 
-        $query = $this->db->simple_query($query);
+        $query = $this->db->simple_query($sql);
         if($query){
             $sql = "
                 UPDATE kendali_periksa
