@@ -170,7 +170,7 @@ class Registrator extends CI_Controller {
 		$post_data=$this->input->post();
 		$kode_kegiatan = $post_data['kde_kegiatan'];
 		//var_dump($kode_kegiatan);
-		 $data['nama_kegiatan'] = $this->m_berkas->select_nama_kegiatan($kode_kegiatan);
+		$data['nama_kegiatan'] = $this->m_berkas->select_nama_kegiatan($kode_kegiatan);
 
 		$this->load->view('registrator/v_nama_kegiatan',$data);
 
@@ -179,7 +179,33 @@ class Registrator extends CI_Controller {
 
 	public function input_dokumen_reg()
 	{
+
+		// $post_data=$this->input->post();
+		// echo "<pre>";
+		// print_r($post_data);
+		// echo "</pre>";
+
+		$post_data=$this->input->post();
+
+
+		$spp_tgl_terima=$post_data['tanggalterima'];
+		$spp_nilai=$post_data['nilaispp'];
+		$kode_bidang=$post_data['bidang'];
+		$spp_nomor=$post_data['nomorspp'];
+		$kode_kegiatan=$post_data['kde_kegiatan'];
+			//$nama_kegiatan=$post_data['namkeg'];
+		$nama_penyedia=$post_data['namapenyedia'];
+		$tgl_kendali_verifikasi=$post_data['tanggalkendali'];
+			//$status_kendali=$post_data['select_jenis_aju'];
+			//$terbit_tgl=$post_data['select_jenis_aju'];
+			//$terbit_nomor=$post_data['select_jenis_aju'];
+		$kode_jenis=$post_data['select_jenis_aju'];
+		$id_verifikatur=$post_data['verifikatur'];
+
 		
+		$this->m_berkas->newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $kode_jenis, $id_verifikatur);
+		
+
 	}
 
 }
