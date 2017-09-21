@@ -2,7 +2,7 @@
 
 class M_berkas extends CI_Model {
 
-    var $this->arrNonLS = array("GUP","TUP","UP");
+    var $arrNonLS = array("GUP","TUP","UP");
 
     function __construct()
     {
