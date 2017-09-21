@@ -45,7 +45,7 @@ class M_berkas extends CI_Model {
         Status
         1 = Baru Masuk
     */
-    function newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $terbit_tgl, $terbit_nomor, $kode_jenis, $id_verifikatur){
+    function newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $kode_jenis, $id_verifikatur){
         $sql = "
             INSERT INTO kendali_utama 
             VALUES
