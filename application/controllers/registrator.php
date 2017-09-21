@@ -26,34 +26,31 @@ class Registrator extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('m_berkas');
-
-
 	}
+
 	public function index()
 	{
-		$this->load->view('registrator/v_registrator');
+		$data["kendali"] = $this->m_berkas->getAllKendali();
+        $data["content"] = $this->load->view('registrator/v_registrator', $data, true);
+		$data["title"] = "Tabel Berkas";
+		$this->parser->parse('content', $data);
+	}
+
+	public function home(){
+		$data["kendali"] = $this->m_berkas->getAllKendali();
+		$data["content"] = $this->load->view('registrator/v_registrator', $data, true);
+		$data["title"] = "Tabel Berkas";
+		$data["status"] = "success";
+		print json_encode($data);	
 	}
 
 	public function tambah_berkas()
 	{
-
-
-		$this->load->view('registrator/v_tambah_berkas');
+		$data["content"] = $this->load->view('registrator/v_tambah_berkas', '', true);
+		$data["title"] = "Tambah Berkas";
+		$data["status"] = "success";
+		print json_encode($data);
 	}
-
-	// public function test()
-	// {
-
-	// 	$post_data=$this->input->post();
-	// 	$bidang = $post_data['bidang'];
-	// 	$select_jenis_aju = $post_data['select_jenis_aju'];
-
-	// 	echo "<pre>";
-	// 	print_r($post_data);
-	// 	exit();
-
-	// 	//$this->load->view('test',$data);
-	// }
 
 	public function berkas_up()
 	{
@@ -144,8 +141,10 @@ class Registrator extends CI_Controller {
 
 		$post_data=$this->input->post();
 		$jenis_verifikasi = $post_data['select_jenis_ver'];
-		$data['nama_verifikatur'] = $this->m_berkas->select_verifikatur();
-		$data['kode_kegiatan'] = $this->m_berkas->select_kegiatan();
+		$data['nama_verifikatur'] = $this->m_berkas->getAllVerifikatur();
+		// $data['kode_kegiatan'] = $this->m_berkas->getAllKegiatan();
+		$kode_bidang = "SKT";
+		$data['kode_kegiatan'] = $this->m_berkas->getKegiatanByBidang($kode_bidang);
 
 		if ($jenis_verifikasi == "BL") {
 			# code...
@@ -166,15 +165,23 @@ class Registrator extends CI_Controller {
 
 	public function ajax_nama_kegiatan()
 	{
-
 		$post_data=$this->input->post();
 		$kode_kegiatan = $post_data['kde_kegiatan'];
 		//var_dump($kode_kegiatan);
-		$data['nama_kegiatan'] = $this->m_berkas->select_nama_kegiatan($kode_kegiatan);
+		$data['nama_kegiatan'] = $this->m_berkas->getNamaKegiatanByKode($kode_kegiatan);
 
-		$this->load->view('registrator/v_nama_kegiatan',$data);
+		print $data['nama_kegiatan']->nama_kegiatan;
+	}
 
+	public function ajax_kode_kegiatan()
+	{
 
+		$post_data=$this->input->post();
+		$kode_bidang = $post_data['bidang'];
+		//var_dump($kode_kegiatan);
+		$data['kegiatan'] = $this->m_berkas->getKegiatanByBidang($kode_bidang);
+
+		print json_encode($data);
 	}
 
 	public function input_dokumen_reg()

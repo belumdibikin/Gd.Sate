@@ -1,112 +1,78 @@
+<form id="myForm" action="javascript:void(0);">
+	<div class="row" style="display: none;">
+		<div class="col-md-4 col-form-label">Jenis Verifikasi</div>
+		<div class="col-md-8">
+			<select class="form-control" id="select_jenis_ver" name="select_jenis_ver" >
+				<option value="BL">Verifikasi SPM Belanja Langsung</option>
+				<option value="TBL" disabled>Verifikasi SPM Belanja Tidak Lansung</option>
+			</select>
+		</div>
+	</div>
+	<div id="form_dokumen_utama"></div>
+	<hr>
 
-<!DOCTYPE html>
-<html>
-
-<?php $this->load->view('head');?>
-
-<body class="bg-steel">
-
-	<?php $this->load->view('appbar');?>
-	<div class="page-content">
-		<div class="flex-grid no-responsive-future">
-			<div class="row" style="height: 100%">
-
-				<div class="cell auto-size padding20 bg-white" id="cell-content">
-					<h1 class="text-light">Tambah Berkas <span class="mif-files-empty place-right"></span></h1>
-					<hr class="thin bg-grayLighter">
-					<form id="myForm" action="javascript:void(0);">
-						<div class="grid">
-							<div class="row cells12">
-								<div class="cell colspan4">
-									<div class="panel">
-										<div class="heading">
-											<span class="title">JENIS VERIFIKASI</span>
-										</div>
-										<div class="content">
-											<div class="row cells6">
-												<div class="cell colspan3">
-													Jenis Verifikasi 
-												</div>
-												<div class="cell">
-													:
-												</div>
-												<div class="cell colspan2">
-													<div class="input-control select">
-														<select id="select_jenis_ver" name="select_jenis_ver" >
-															<option value="BL">VERIFIKASI SPM BELANJA LANGSUNG</option>
-															<option value="TBL">VERIFIKASI SPM  TIDAK LANGSUNG BELANJA LANGSUNG</option>
-															<option value="SPJ">SPJ</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div id="form_dokumen_utama"></div>
-							<hr class="thin bg-grayLighter">
-							<button class="button alert" onclick="myFunction()"><span class="mif-loop2"></span> Clear Data</button>
-							<button class="button primary" type="button" id="btn_kirim">Kirim</button>
-							<!-- <button class="button success" id="btn_kirim" onclick="clickSubmit()"><span class="mif-play"></span> Send</button> -->
-						</div>
-					</form>
-
-					<hr class="thin bg-grayLighter">
-				</div>
+	<div class="card-header float-right">
+		<button class="btn btn-outline-danger" onclick="myFunction()"><span class="mif-loop2"></span> Clear Data</button>
+		<button class="btn btn-warning" id="btn_kirim">Kirim</button>
+	</div>
+</form>
+<div class="modal" id="modalKirim">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-dark text-warning">
+				<h5 class="modal-title">Kirim Berkas Baru</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Apakah anda sudah yakin dengan data yang diisikan?</p>
+				Data tidak dapat dirubah setelah terkirim.
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+				<button type="button" class="btn btn-success" onclick="clickKirim()">Ya</button>
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+</div>
 
 <script type="text/javascript">
-
-
 	$(".LS").hide();
-
+	$('#modalKirim').modal({
+		backdrop: "static"
+	});
+	$('#modalKirim').modal('toggle');
 	$('#select_jenis_ver').change(function(event) {
-		/* Act on the event */
-
-
-
 		$.ajax({
 			url: "<?php echo base_url('registrator/ajax_tampil_form_verifikasi'); ?>",
 			type: 'POST',
 			dataType: 'html',
 			data: $('#myForm').serialize(),
 			success: function(data){
-			//console.log(data);
-			$('#form_dokumen_utama').html(data);
-		}
+				$('#form_dokumen_utama').html(data);
+			}
+		});
 	});
-
-	});
+	$('#select_jenis_ver').change();
 
 	$('#btn_kirim').click(function(event) {
-        /* Act on the event */
+		$('#modalKirim').modal('toggle');
+	});
 
-        $.ajax({
-            url: "<?php echo base_url('registrator/input_dokumen_reg'); ?>",
-            type: 'POST',
-            dataType: 'html',
-            data: $('#myForm').serialize(),
-            success: function(data){
-            	if(data != "error"){
-            		window.location = "<?php echo base_url('registrator/index'); ?>";
-
-            	}
-                //console.log(data);
-               // $('#data_dok').html(data);
-            }
-        });
-        
-    });
-
-
-
-
-
+	var clickKirim = function(){
+		$.ajax({
+			url: "<?php echo base_url('registrator/input_dokumen_reg'); ?>",
+			type: 'POST',
+			dataType: 'html',
+			data: $('#myForm').serialize(),
+			success: function(data){
+				if(data != "error"){
+					window.location = "<?php echo base_url('registrator/index'); ?>";
+				}
+			}
+		});
+	};
 
 </script>
 

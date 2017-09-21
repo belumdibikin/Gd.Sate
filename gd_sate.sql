@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2017 at 11:47 AM
+-- Generation Time: Sep 22, 2017 at 12:47 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -94,7 +94,7 @@ CREATE TABLE `kegiatan` (
 -- Dumping data for table `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`kode_kegiatan`, `nama_kegiatan`, `kode_bidang`, `pj_pembuat_komitmen`, `pj_pelaksana_teknis_kegiatan`, `bd_pengeluaran_pembantu`, `bd_pengeluaran_bpkad`, `pj_pengelola_keuangan_skpd`, `pg_anggaran`) VALUES('100.01', 'Penyusunan APBD Proovinsi Jawa Barat', 'BA', 17, 22, 16, 9, 27, 11);
+INSERT INTO `kegiatan` (`kode_kegiatan`, `nama_kegiatan`, `kode_bidang`, `pj_pembuat_komitmen`, `pj_pelaksana_teknis_kegiatan`, `bd_pengeluaran_pembantu`, `bd_pengeluaran_bpkad`, `pj_pengelola_keuangan_skpd`, `pg_anggaran`) VALUES('100.01', 'Penyusunan APBD Provinsi Jawa Barat', 'BA', 17, 22, 16, 9, 27, 11);
 INSERT INTO `kegiatan` (`kode_kegiatan`, `nama_kegiatan`, `kode_bidang`, `pj_pembuat_komitmen`, `pj_pelaksana_teknis_kegiatan`, `bd_pengeluaran_pembantu`, `bd_pengeluaran_bpkad`, `pj_pengelola_keuangan_skpd`, `pg_anggaran`) VALUES('100.02', 'Penyusunan Perubahan APBD Provinsi Jawa Barat', 'BA', 17, 22, 16, 9, 27, 11);
 INSERT INTO `kegiatan` (`kode_kegiatan`, `nama_kegiatan`, `kode_bidang`, `pj_pembuat_komitmen`, `pj_pelaksana_teknis_kegiatan`, `bd_pengeluaran_pembantu`, `bd_pengeluaran_bpkad`, `pj_pengelola_keuangan_skpd`, `pg_anggaran`) VALUES('100.03', 'Sosialisasi Peraturan Mengenai Pengelolaan Keuangan Daerah', 'BA', 17, 24, 16, 9, 27, 11);
 INSERT INTO `kegiatan` (`kode_kegiatan`, `nama_kegiatan`, `kode_bidang`, `pj_pembuat_komitmen`, `pj_pelaksana_teknis_kegiatan`, `bd_pengeluaran_pembantu`, `bd_pengeluaran_bpkad`, `pj_pengelola_keuangan_skpd`, `pg_anggaran`) VALUES('100.04', 'Penyusunan Peraturan Mengenai Pengelolaan Keuangan Daerah', 'BA', 17, 24, 16, 9, 27, 11);
@@ -193,6 +193,12 @@ CREATE TABLE `kendali_ls` (
   `bd_fc_sp` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kendali_ls`
+--
+
+INSERT INTO `kendali_ls` (`id_kendali`, `spp_bp`, `spp_bpp`, `spp_ringkasan`, `spp_rincian`, `nt_pengajuan`, `ls_spk`, `ls_bapp`, `ls_bukti_transfer`, `ls_referensi_bank`, `ls_ebilling_pajak`, `ls_faktur_pajak`, `um_rincian`, `um_jaminan`, `jm_pelaksana_pekerjaan`, `jm_sosial_ketenagakerjaan`, `tm_kemajuan_pekerjaan`, `js_ba_serah_terima`, `js_sr_permohonan_bayar`, `bd_rekap_lalu`, `bd_hadir_lalu`, `bd_sr_tanggung_jawab`, `bd_nominatif`, `bd_nominatif_lalu`, `bd_fc_spk`, `bd_fc_sp`) VALUES(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -217,6 +223,12 @@ CREATE TABLE `kendali_non_ls` (
   `tu_rencana_guna` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `kendali_non_ls`
+--
+
+INSERT INTO `kendali_non_ls` (`id_kendali`, `spp_bp`, `spp_bpp`, `spp_ringkasan`, `spp_rincian`, `spp_nd_pengajuan`, `sr_pernyataan_pengajuan`, `up_dat_dpa`, `up_dat_spd_tri`, `up_anggaran_kas`, `up_rencana_pencairan`, `gu_sr_pengesahan_spj`, `gu_sr_pernyataan_belanja`, `tu_sr_setuju`, `tu_rencana_guna`) VALUES(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -236,6 +248,13 @@ CREATE TABLE `kendali_periksa` (
   `ppk_tgl_kembali` date DEFAULT NULL,
   `ppk_tgl_setuju` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kendali_periksa`
+--
+
+INSERT INTO `kendali_periksa` (`id_kendali`, `id_verifikatur`, `vr_catatan`, `vr_kesimpulan`, `vr_tgl_periksa`, `vr_tgl_kembali`, `vr_tgl_selesai`, `id_ppk`, `ppk_tgl_periksa`, `ppk_tgl_kembali`, `ppk_tgl_setuju`) VALUES(1, 42, NULL, NULL, NULL, NULL, NULL, 27, NULL, NULL, NULL);
+INSERT INTO `kendali_periksa` (`id_kendali`, `id_verifikatur`, `vr_catatan`, `vr_kesimpulan`, `vr_tgl_periksa`, `vr_tgl_kembali`, `vr_tgl_selesai`, `id_ppk`, `ppk_tgl_periksa`, `ppk_tgl_kembali`, `ppk_tgl_setuju`) VALUES(2, 43, NULL, NULL, NULL, NULL, NULL, 27, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -257,6 +276,13 @@ CREATE TABLE `kendali_utama` (
   `terbit_nomor` varchar(255) DEFAULT NULL,
   `kode_jenis` char(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kendali_utama`
+--
+
+INSERT INTO `kendali_utama` (`id_kendali`, `spp_nomor`, `spp_tgl_terima`, `spp_nilai`, `kode_bidang`, `kode_kegiatan`, `nama_penyedia`, `tgl_kendali_verifikasi`, `status_kendali`, `terbit_tgl`, `terbit_nomor`, `kode_jenis`) VALUES(1, 'SKT01', '2017-09-22', 1000000, 'SKT', '110.06', 'SKT', '2017-09-22', 1, '0000-00-00', '', 'BD');
+INSERT INTO `kendali_utama` (`id_kendali`, `spp_nomor`, `spp_tgl_terima`, `spp_nilai`, `kode_bidang`, `kode_kegiatan`, `nama_penyedia`, `tgl_kendali_verifikasi`, `status_kendali`, `terbit_tgl`, `terbit_nomor`, `kode_jenis`) VALUES(2, 'BLPBJ69', '2017-09-13', 66990000, 'BLPBJ', '110.07', '', '2017-09-05', 1, '0000-00-00', '', 'TUP');
 
 -- --------------------------------------------------------
 
@@ -315,6 +341,36 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(3
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(39, '197605031998031003', 'Upar Suparno, S.IP, M.AP', 'Penata/III.c');
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(40, '197307311998031003', 'Yadi Cahyadi, S.Sos., M.Si', 'Penata Tk.I/III.d');
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(41, '198006111998101002', 'Yosep Mochamad Zuanda, S.STP, M.Si', 'Penata/III.c');
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(42, NULL, 'Noviyanti, SE., MM.', NULL);
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(43, NULL, 'Setiady, S.ST.', NULL);
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(44, NULL, 'Triyani, SE.', NULL);
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `golongan`) VALUES(45, NULL, 'Hendra Hermawan, SE.', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id_status` int(11) NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `level_user` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(1, 'Berkas Baru', 1);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(2, 'Berkas Kembali', 1);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(3, 'Diperiksa Verifikatur', 2);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(4, 'Dikembalikan ke Pengaju', 2);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(5, 'Dikirim ke Pimpinan', 2);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(6, 'Berkas Diperiksa Pimpinan', 3);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(7, 'Dikembalikan ke Verifikatur', 3);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(8, 'Disetujui Pimpinan', 3);
+INSERT INTO `status` (`id_status`, `status`, `level_user`) VALUES(9, 'Berkas Terbit', 2);
 
 -- --------------------------------------------------------
 
@@ -373,6 +429,10 @@ INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(37, 37,
 INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(38, 38, '4', '047aeeb234644b9e2d4138ed3bc7976a');
 INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(39, 39, '4', '047aeeb234644b9e2d4138ed3bc7976a');
 INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(40, 40, '4', '047aeeb234644b9e2d4138ed3bc7976a');
+INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(41, 42, '2', '7f7da9dd4f0b0a40bb141e1994a81e2d');
+INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(42, 43, '2', '7f7da9dd4f0b0a40bb141e1994a81e2d');
+INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(43, 44, '2', '7f7da9dd4f0b0a40bb141e1994a81e2d');
+INSERT INTO `user` (`id_user`, `id_pegawai`, `level`, `password`) VALUES(44, 45, '2', '7f7da9dd4f0b0a40bb141e1994a81e2d');
 
 --
 -- Indexes for dumped tables
@@ -453,17 +513,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kendali_utama`
 --
 ALTER TABLE `kendali_utama`
-  MODIFY `id_kendali` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kendali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- Constraints for dumped tables
 --

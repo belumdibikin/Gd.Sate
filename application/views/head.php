@@ -10,75 +10,15 @@
 
     <title>Registrasi Berkas</title>
 
-    <link href="<?php echo base_url('asset/css');?>/metro.css" rel="stylesheet">
-    <link href="<?php echo base_url('asset/css');?>/metro-icons.css" rel="stylesheet">
-    <link href="<?php echo base_url('asset/css');?>/metro-responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/   css" media="all" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="<?php echo base_url('asset/js');?>/jquery-2.1.3.min.js"></script>
-    <script src="<?php echo base_url('asset/js');?>/jquery.dataTables.min.js"></script>
-
-    <script src="<?php echo base_url('asset/js');?>/metro.js"></script>
-
-
-    <script src="<?php echo base_url('asset/js');?>/raphael.min.js"></script>
-  <script src="<?php echo base_url('asset/moris/');?>/morris.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
-  <script src="<?php echo base_url('asset/moris/examples');?>/lib/example.js"></script>
-  <link rel="stylesheet" href="<?php echo base_url('asset/moris/example');?>/lib/example.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
-  <link rel="stylesheet" href="<?php echo base_url('asset/moris');?>/morris.css">
-
-
-
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-        }
-        .page-content {
-            padding-top: 3.125rem;
-            min-height: 100%;
-            height: 100%;
-        }
-        .table .input-control.checkbox {
-            line-height: 1;
-            min-height: 0;
-            height: auto;
-        }
-
-        @media screen and (max-width: 800px){
-            #cell-sidebar {
-                flex-basis: 52px;
-            }
-            #cell-content {
-                flex-basis: calc(100% - 52px);
-            }
-        }
-    </style>
-
-    <script>
-        function pushMessage(t){
-            var mes = 'Info|Implement independently';
-            $.Notify({
-                caption: mes.split("|")[0],
-                content: mes.split("|")[1],
-                type: t
-            });
-        }
-
-        $(function(){
-            $('.sidebar').on('click', 'li', function(){
-                if (!$(this).hasClass('active')) {
-                    $('.sidebar li').removeClass('active');
-                    $(this).addClass('active');
-                }
-            })
-        })
-    </script>
-
-    
+    <link href="<?php echo base_url('asset/bootstrap-4.0.0-beta/dist/css');?>/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url('asset/font-awesome-4.7.0/css');?>/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('asset');?>/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="<?php echo base_url('asset');?>/bootstrap-datatable.css" rel="stylesheet">
+    <script src="<?php echo base_url('asset');?>/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo base_url('asset');?>/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('asset');?>/moment.js"></script>
+    <script src="<?php echo base_url('asset');?>/popper.min.js"></script>
+    <script src="<?php echo base_url('asset/bootstrap-4.0.0-beta/dist/js');?>/bootstrap.js"></script>
+    <script src="<?php echo base_url('asset');?>/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url('asset');?>/dataTables.bootstrap4.min.js"></script>
 </head>

@@ -9,18 +9,22 @@ class M_berkas extends CI_Model {
         parent::__construct();
     }
 
-
-
-    function select_kegiatan()
+    function getAllKegiatan()
     {
         $this->db->select('*');
         $this->db->from('kegiatan');
         return $this->db->get()->result();
     }
 
+    function getKegiatanByBidang($kode_bidang)
+    {
+        $this->db->select('*');
+        $this->db->from('kegiatan');
+        $this->db->where('kode_bidang', $kode_bidang);
+        return $this->db->get()->result();
+    }
 
-
-    function select_verifikatur()
+    function getAllVerifikatur()
     {
         $sql = "
             SELECT p.id_pegawai, p.nama_pegawai
@@ -32,12 +36,20 @@ class M_berkas extends CI_Model {
         return $query->result();
     }
 
-
-    function select_nama_kegiatan($kode_kegiatan)
-    {
+    function getNamaKegiatanByKode($kode_kegiatan){
         $this->db->select('nama_kegiatan');
         $this->db->from('kegiatan');
         $this->db->where('kode_kegiatan', $kode_kegiatan);
+        return $this->db->get()->row();
+    }
+
+    function getAllKendali(){
+        $this->db->select('*');
+        $this->db->from('kendali_utama ku');
+        $this->db->join('kendali_periksa kp', 'ku.id_kendali = kp.id_kendali', 'left');
+        $this->db->join('kegiatan k', 'ku.kode_kegiatan = k.kode_kegiatan', 'left');
+        $this->db->join('status s', 'ku.status_kendali = s.id_status', 'left');
+        $this->db->join('pegawai p', 'kp.id_verifikatur = p.id_pegawai', 'left');
         return $this->db->get()->result();
     }
 
@@ -65,7 +77,7 @@ class M_berkas extends CI_Model {
         6 = Berkas Diperiksa Pimpinan (3)
         7 = Berkas Dikembalikan ke Verifikatur (3)
         8 = Berkas Disetujui Pimpinan (3)
-        9 = Berkas Diterbitkan (2)
+        9 = Berkas Terbit (2)
     */
     function newKendali($spp_nomor, $spp_tgl_terima, $spp_nilai, $kode_bidang, $kode_kegiatan, $nama_penyedia, $tgl_kendali_verifikasi, $kode_jenis, $id_verifikatur){
         $sql = "
