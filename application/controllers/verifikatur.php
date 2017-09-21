@@ -36,7 +36,7 @@ class Verifikatur extends CI_Controller {
 
 	public function terima_berkas_verifikatur()
 	{
-		$this->load->view('verifikatur/v_terima_berkas_up'); //contoh yang up (harusnya v_terima_berkas)
+		$this->load->view('verifikatur/v_terima_berkas'); //contoh yang up (harusnya v_terima_berkas)
 	}
 
 	
