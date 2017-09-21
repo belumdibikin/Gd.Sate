@@ -78,7 +78,7 @@
 						:
 					</div>
 					<div class="cell colspan2">
-						<div class="input-control text" data-role="datepicker">
+						<div class="input-control text" data-role="datepicker" data-format="isoDate">
 							<input type="text" name="tanggalterima">
 							<button class="button"><span class="mif-calendar"></span></button>
 						</div>
@@ -92,7 +92,7 @@
 						:
 					</div>
 					<div class="cell colspan2">
-						<div class="input-control text" data-role="datepicker">
+						<div class="input-control text" data-role="datepicker" data-format="isoDate">
 							<input type="text" name="tanggalkendali">
 							<button class="button"><span class="mif-calendar"></span></button>
 						</div>
