@@ -148,9 +148,8 @@
 					<div class="cell colspan2">
 						<div class="input-control select">
 							<select name ="verifikatur">
-								<option></option>
 							<?php foreach ($nama_verifikatur as $nama) {
-                                                    echo "<option value=".$nama->id_verifikatur.">".$nama->nama_verifikatur."</option>";
+                                                    echo "<option value=".$nama->id_pegawai.">".$nama->nama_pegawai."</option>";
                                                 }?>
 								
 							</select>

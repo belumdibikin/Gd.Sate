@@ -21,9 +21,14 @@ class M_berkas extends CI_Model {
    
    function select_verifikatur()
    {
-       $this->db->select('*');
-      $this->db->from('verifikatur');
-      return $this->db->get()->result();
+      $sql = "
+        SELECT p.id_pegawai, p.nama_pegawai
+        FROM pegawai p, user u
+        WHERE u.level = 2
+        AND p.id_pegawai = u.id_pegawai
+      ";
+      $query = $this->db->query($sql);
+      return $query->result();
    }
 
 
