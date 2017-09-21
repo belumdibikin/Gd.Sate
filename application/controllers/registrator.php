@@ -177,4 +177,9 @@ class Registrator extends CI_Controller {
 
 	}
 
+	public function input_dokumen_reg()
+	{
+		
+	}
+
 }

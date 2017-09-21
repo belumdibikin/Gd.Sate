@@ -17,15 +17,14 @@
 					<div class="cell colspan2">
 						<div class="input-control select">
 							<select name="bidang">
-								<option></option>
-								<option value="sekertariat">Sekertariat</option>
-								<option value="b_anggaran">Bidang Anggaran</option>
-								<option value="b_perbendaharaan">Bidang Perbendaharaan</option>
-								<option value="b_akun_pel">Bidang Akutansi Dan Pelaporan</option>
-								<option value="b_peng_bmd">Bidang Pengelolaan Barang Milik Daerah</option>
-								<option value="b_pel_ev_apbd">Bidang Pengelolaan Evaluasi APBD Kab/Kota</option>
-								<option value="b_peng_barjas">Bidang Pengadaan Barang dan Jasa</option>
-								<option value="b_pel_pem_aset">Bidang Pelayanan dan Pemanfaatan Aset</option>
+								<option value="SKT">Sekertariat</option>
+								<option value="BA">Bidang Anggaran</option>
+								<option value="BP">Bidang Perbendaharaan</option>
+								<option value="BAP">Bidang Akutansi Dan Pelaporan</option>
+								<option value="BPBMD">Bidang Pengelolaan Barang Milik Daerah</option>
+								<option value="BLPEA">Balai Pengelolaan Evaluasi APBD Kab/Kota</option>
+								<option value="BLPBJ">Balai Pengadaan Barang dan Jasa</option>
+								<option value="BLPPA">Balai Pelayanan dan Pemanfaatan Aset</option>
 							</select>
 						</div>
 					</div>
@@ -41,32 +40,43 @@
 						<div class="input-control select ">
 
 							<select  id="select_jenis_aju" name="select_jenis_aju">
-								<option></option>
-								<option value="UP">UP</option>
-								<option value="GU">GU</option>
-								<option value="TU">TU</option>
-								<option value="LS">LS</option>
-								<option value="SPJ">SPJ</option>
+								<option value="UP">UP-Uang Persedian</option>
+								<option value="GUP">GU-Ganti Uang Persediaan</option>
+								<option value="TUP">TU-Tambah Uang Persediaan</option>
+								<option value="LS">LS-Belanja Langsung</option>
 							</select>
 						</div>
 					</div>
 				</div>
 				<div class="row cells6 LSop">
 					<div class="cell colspan3">
-						LS
+						Belanja Langsung (LS)
 					</div>
 					<div class="cell">
 						:
 					</div>
 					<div class="cell colspan2">
 						<div class="input-control select">
-							<select name="bidang">
-								<option></option>
-								<option value="tagihan100">Tagihan 100%</option>
-								<option value="uang_muka">Uang Muka</option>
-								<option value="termin">Termin </option>
-								<option value="jasa_profesi">Jasa Profesi</option>
+							<select name="blls">
+								<option value="BD">Bendahara</option>
+								<option value="UM">Uang Muka</option>
+								<option value="TM">Termin </option>
+								<option value="BJ">Barang Jasa</option>
 							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row cells6 ">
+					<div class="cell colspan3">
+
+						Nomor SPP  
+					</div>
+					<div class="cell">
+						:
+					</div>
+					<div class="cell colspan2">
+						<div class="input-control text">
+							<input type="text" name="nomorspp">
 						</div>
 					</div>
 				</div>
@@ -109,7 +119,6 @@
 						<div class="input-control select">
 
 							<select name="kde_kegiatan" id="kde_kegiatan">
-								<option></option>
 								<?php foreach ($kode_kegiatan as $kode) {
                                                     echo "<option value=".$kode->kode_kegiatan.">".$kode->kode_kegiatan."</option>";
                                                 }?>
