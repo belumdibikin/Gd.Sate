@@ -74,7 +74,11 @@ class M_berkas extends CI_Model {
 
     function getKendaliUtamaByID($id_kendali){
         $this->db->select('*');
-        $this->db->from('kendali_utama');
+        $this->db->from('kendali_utama ku');
+        $this->db->join('kendali_periksa kp', 'ku.id_kendali = kp.id_kendali', 'left');
+        $this->db->join('kegiatan k', 'ku.kode_kegiatan = k.kode_kegiatan', 'left');
+        $this->db->join('status s', 'ku.status_kendali = s.id_status', 'left');
+        $this->db->join('pegawai p', 'kp.id_verifikatur = p.id_pegawai', 'left');
         $this->db->where('id_kendali', $id_kendali);
         return $this->db->get()->row();   
     }
