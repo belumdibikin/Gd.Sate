@@ -79,7 +79,7 @@ class M_berkas extends CI_Model {
         $this->db->join('kegiatan k', 'ku.kode_kegiatan = k.kode_kegiatan', 'left');
         $this->db->join('status s', 'ku.status_kendali = s.id_status', 'left');
         $this->db->join('pegawai p', 'kp.id_verifikatur = p.id_pegawai', 'left');
-        $this->db->where('id_kendali', $id_kendali);
+        $this->db->where('ku.id_kendali', $id_kendali);
         return $this->db->get()->row();   
     }
 
