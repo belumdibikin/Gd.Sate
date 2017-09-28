@@ -14,11 +14,13 @@
     <link href="<?php echo base_url('asset/font-awesome-4.7.0/css');?>/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url('asset');?>/bootstrap-datepicker.css" rel="stylesheet">
     <link href="<?php echo base_url('asset');?>/bootstrap-datatable.css" rel="stylesheet">
+    <link href="<?php echo base_url('asset');?>/bootstrap-toggle.css" rel="stylesheet">
     <script src="<?php echo base_url('asset');?>/jquery-3.2.1.min.js"></script>
     <script src="<?php echo base_url('asset');?>/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url('asset');?>/moment.js"></script>
     <script src="<?php echo base_url('asset');?>/popper.min.js"></script>
     <script src="<?php echo base_url('asset/bootstrap-4.0.0-beta/dist/js');?>/bootstrap.js"></script>
     <script src="<?php echo base_url('asset');?>/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url('asset');?>/bootstrap-toggle.js"></script>
     <script src="<?php echo base_url('asset');?>/dataTables.bootstrap4.min.js"></script>
 </head>
