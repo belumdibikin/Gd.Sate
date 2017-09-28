@@ -68,72 +68,7 @@ class Registrator extends CI_Controller {
 	}
 
 
-	// public function ajax_tampil_form()
-	// {
-
-	// 	$post_data=$this->input->post();
-	// 	$jenis_ajuan = $post_data['select_jenis_aju'];
-
-	// 	if($jenis_ajuan == 'UP')
-	// 	{
-
-	// 	$this->load->view('registrator/v_berkas_up');
-
-	// 	}elseif ($jenis_ajuan == "GU") {
-	// 		# code...
-	// 		$this->load->view('registrator/v_berkas_gu');
-
-	// 	}elseif ($jenis_ajuan == "TU") {
-	// 		# code...
-	// 		$this->load->view('registrator/v_berkas_tu');
-	// 	}elseif($jenis_ajuan == 'LS'){
-
-	// 		$this->load->view('registrator/v_berkas_ls');
-	// 	}elseif($jenis_ajuan == 'SPJ'){
-	// 		$this->load->view('registrator/v_berkas_spj');
-
-	// 	}else{	
-	// 		echo "Maaf input yang anda masukan tidak sesuai, Silahkan ulangi kembali";
-	// 	}
-
-
-	// }
-
-	// public function ajax_tampil_lampiran()
-	// {
-
-	// 	$post_data=$this->input->post();
-	// 	$jenis_ajuan = $post_data['select_jenis_aju'];
-
-	// 	if($jenis_ajuan == 'UP')
-	// 	{
-
-	// 	echo "lampiran UP";	
-	// 	//$this->load->view('registrator/v_berkas_up');
-
-	// 	}elseif ($jenis_ajuan == "GU") {
-	// 		# code...
-	// 	echo "lampiran GU";	
-	// 		//$this->load->view('registrator/v_berkas_gu');
-
-	// 	}elseif ($jenis_ajuan == "TU") {
-	// 		# code...
-	// 	echo "lampiran TU";	
-	// 		//$this->load->view('registrator/v_berkas_tu');
-	// 	}elseif($jenis_ajuan == 'LS'){
-
-	// 	echo "lampiran LS";	
-	// 		//$this->load->view('registrator/v_berkas_ls');
-	// 	}elseif($jenis_ajuan == 'SPJ'){
-	// 	echo "lampiran UP";	
-	// 		//$this->load->view('registrator/v_berkas_spj');
-
-	// 	}else{	
-	// 		echo "Maaf input yang anda masukan tidak sesuai, Silahkan ulangi kembali";
-	// 	}
-
-
-	// }
+	
 	
 
 	public function ajax_tampil_form_verifikasi()

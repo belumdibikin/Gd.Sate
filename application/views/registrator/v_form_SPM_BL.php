@@ -2,7 +2,7 @@
 	<div class="card-header text-warning bg-dark">Dokumen Utama</div>
 	<div class="card-body">
 		<div class="row">
-			<div class="col-md-4 col-form-label">Jenis Verifikasi</div>
+			<div class="col-md-4 col-form-label">Bidang / Balai</div>
 			<div class="col-md-8">
 				<div class="form-group">
 					<select class="form-control" name="bidang" id="bidang">

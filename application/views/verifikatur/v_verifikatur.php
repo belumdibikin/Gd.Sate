@@ -1,74 +1,41 @@
-<!DOCTYPE html>
-<html>
-
-    <?php $this->load->view('head');?>
-
-<body class="bg-steel">
-       
-    <?php $this->load->view('verifikatur/appbar_verifikatur');?>
-<div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                
-                <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light">Verifikatur<span class="mif-clipboard place-right"></span></h1>
-                    <hr class="thin bg-grayLighter">
-                    
-                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
-                        <thead>
-                        <tr>
-                            <td >
-                            	NO
-                            </td>
-                            <td class="sortable-column sort-asc" >No SPP</td>
-                            <td class="sortable-column sort-asc" >Jenis Verivikasi</td>
-                            <td class="sortable-column sort-asc" >Pengajuan</td>
-                            <td class="sortable-column">Tanggal Penerimaan SPP </td>
-                            <td class="sortable-column">Status</td>
-                            <td class="sortable-column">Aksi</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>123890723212</td>
-                            <td>Belanja Langsung</td>
-                            <td>UP</td>
-                            <td>11/12/2017</td>
-                            <td>Diterima dari registrator</td>
-                            <td><a href="<?php echo base_url('verifikatur/terima_berkas_verifikatur');?>">Terima</a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2
-                            </td>
-                            <td>123890723212</td>
-                            <td>Belanja Langsung</td>
-                            <td>TU</td>
-                            <td>Machine number 2</td>
-                            <td>Dikembalikan Dari Pimpinan</td>
-                            <td><a href="http://virtuals.com/machines/123890723212">Terima</a></td>
-                        </tr>
-						<tr>
-                            <td>
-                                3
-                            </td>
-                            <td>123890723212</td>
-                            <td>Belanja Langsung</td>
-                            <td>GU</td>
-                            <td>Machine number 2</td>
-                            <td>Diterima Dari Registrator</td>
-                            <td><a href="http://virtuals.com/machines/123890723212">Terima</a></td>
-                            
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-</div>
-</body>
-</html>
+<table class="table table-hover" id="tableBerkas">
+    <thead class="thead text-warning bg-dark">
+        <tr>
+            <th>#</th>
+            <th>Nomor SPP</th>
+            <th>Kode Kegiatan</th>
+            <th>Nama Kegiatan</th>
+            <th>Tanggal Masuk</th>
+            <th>Nama Verifikatur</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            $idx = 1;
+            foreach ($kendali as $kendali_) {
+        ?>
+        <tr>
+            <th scope="row"><?php echo $idx; ?></th>
+            <td><?php echo $kendali_->spp_nomor; ?></td>
+            <td><?php echo $kendali_->kode_kegiatan; ?></td>
+            <td><?php echo $kendali_->nama_kegiatan; ?></td>
+            <td><?php echo $kendali_->spp_tgl_terima; ?></td>
+            <td><?php echo $kendali_->nama_pegawai; ?></td>
+            <td><?php echo $kendali_->status; ?></td>
+            <!-- <td><a href="<?php //echo base_url('verifikatur/terima_berkas_verifikatur');?>">Terima</a></td> -->
+            <td><a href="<?php echo base_url('verifikatur/terima_berkas_verifikatur/'.$kendali_->id_kendali);?>">Terima</a></td>
+        </tr>
+        <?php
+            $idx++;
+            }
+        ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $("#tableBerkas").DataTable({
+        "lengthChange": false,
+        "searching": false
+    });
+</script>

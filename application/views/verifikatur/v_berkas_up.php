@@ -1,169 +1,56 @@
-<div class="cell colspan3">
-	<div class="panel">
-		<div class="heading">
-			<span class="title">Dokumen Umum</span>
-		</div>
-		<div class="content">
-			<div class="row cells6">
-				<div class="cell colspan3">
-					SPP 1 - Surat Pengantar (BP)  
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-			<div class="row cells6">
-				<div class="cell colspan3">
-					SPP 1 - Surat Pengantar (BPP) 
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-			<div class="row cells6">
-				<div class="cell colspan3">
-					SPP 2 - Ringkasan
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-			<div class="row cells6">
-				<div class="cell colspan3">
-					SPP 2 - Rincian
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-			<div class="row cells6">
-				<div class="cell colspan3">
-					Surat Pernyataan Pengajuan
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-			<div class="row cells6">
-				<div class="cell colspan3">
-					Nota Dinas Pengajuan SPP 
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>
-		</div>
+<div class="card card-default">
+	<div class="card-header text-warning bg-dark">Dokumen Khusus UP</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-md-4 col-form-label"> DPA Murni/Pergeseran/Perubahan</div>
+			<div class="col-md-8">
+				<div class="form-group">
 
-	</div>
-	<br>
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="checkbox" name="dpa_up" id="dpa_up" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger" data-size="small">
+						</label>
+					</div>
 
-	<div class="panel">
-		<div class="heading">
-			<span class="title">Dokumen Awal Tahun</span>
-		</div>
-		<div class="content">
-			<div class="row cells8">
-				<div class="cell colspan6">
-					DPA Murni/ Pergeseran/ Perubahan
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
+
 				</div>
 			</div>
-			<div class="row cells8">
-				<div class="cell colspan6">
-					SPD Triwulan ke- 
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>					        			
 		</div>
-	</div>
-	<br>
-
-	<div class="panel">
-		<div class="heading">
-			<span class="title">Dokumen UP</span>
-		</div>
-		<div class="content">
-			<br>
-			<div class="row cells8">
-				<div class="cell colspan6">
-					Anggaran Kas UP
-				</div>
-				<div class="cell">
-					:
-				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
+		<div class="row">
+			<div class="col-md-4 col-form-label">SPD Triwulan ke -</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="checkbox" name="Spd_up" id="Spd_up" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger" data-size="small">
+						</label>
+					</div>
 				</div>
 			</div>
-			<div class="row cells8">
-				<div class="cell colspan6">
-					Rencana Pencairan 
+		</div>
+		<div class="row LS">
+			<div class="col-md-4 col-form-label">Anggaran Kas UP</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="checkbox" name="anggaran_kas_up" id="anggaran_kas_up" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger" data-size="small">
+						</label>
+					</div>
 				</div>
-				<div class="cell">
-					:
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-form-label">Rencana Pencairan UP</div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="checkbox" name="rencana_cair_up" id="rencana_cair_up" checked data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger" data-size="small">
+						</label>
+					</div>
 				</div>
-				<div class="cell colspan2">
-					<label class="switch">
-						<input type="checkbox">
-						<span class="check"></span>
-					</label>
-				</div>
-			</div>					        			
+			</div>
 		</div>
 	</div>
 </div>

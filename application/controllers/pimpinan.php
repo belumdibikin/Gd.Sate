@@ -25,19 +25,40 @@ class Pimpinan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url');
-		//$this->load->model('');
-	
+		$this->load->model('m_berkas');
+
 
 	}
 	public function index()
 	{
-		$this->load->view('pimpinan/v_pimpinan');
+		$data["kendali"] = $this->m_berkas->getAllKendaliByStatus(array(5,6));
+		$data["content"] = $this->load->view('pimpinan/v_pimpinan', $data, true);
+		$data["title"] = "Tabel Berkas";
+		$this->parser->parse('content', $data);
+		// $this->load->view('pimpinan/v_pimpinan');
 	}
 
-	public function terima_berkas_pimpinan()
+	public function home()
 	{
-		//$this->load->view('verifikatur/v_terima_berkas'); 
-		$this->load->view('pimpinan/v_terima_berkas_pimp'); //contoh yang up
+
+		$data["kendali"] = $this->m_berkas->getAllKendali();
+		$data["content"] = $this->load->view('pimpinan/v_pimpinan', $data, true);
+		$data["title"] = "Tabel Berkas";
+		$data["status"] = "success";
+		print json_encode($data);	
+	}
+
+	public function terima_berkas_pimpinan($id_kendali)
+	{
+		//$data =array();
+		$data["berkas"] = $this->m_berkas->getKendaliUtamaByID($id_kendali);
+		$data["content"] = $this->load->view('pimpinan/v_terima_berkas_pimp', $data,  true);
+		$data["title"] = "Terima Berkas";
+		$data["status"] = "success";
+		// print json_encode($data);
+		$this->parser->parse('content', $data);
+
+		//$this->load->view('verifikatur/v_terima_berkas'); //contoh yang up (harusnya v_terima_berkas)
 	}
 
 	
